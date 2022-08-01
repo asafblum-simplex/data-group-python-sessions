@@ -1,6 +1,17 @@
+"""
+__main__.py (not to be confused with __init__.py) acts as an entry point to our app when running from the cli.
+It tells python what to execute when we execute the package(i.e. folder) directly.
+"""
+from app.common import *
+import sys
+from app import cli_runner
+import app
+from app import *
+
 # TODO:
 # https://docs.python.org/3/tutorial/modules.html
 # https://docs.python.org/3/library/__main__.html#main-py-in-python-packages
+# https://docs.python.org/3/reference/datamodel.html
 
 # TODO: read - useful builtin modules
 # https://docs.python.org/3/library/argparse.html#module-argparse
@@ -13,15 +24,10 @@
 # https://docs.python.org/3/library/timeit.html#module-timeit
 
 
-"""
-__main__.py (not to be confused with __init__.py) acts as an entry point to our app when running from the cli.
-It tells python what to execute when we execute the package(i.e. folder) directly.
-"""
-import sys
-
+print(f"(root - main) We are in {__file__}")
+print(f'Module {app.__name__} is found at {app.__path__}')
 print(f"(*) running from {__file__}, \nmodule __name__ is {__name__}")
 
-from app import cli_runner
 cli_runner()
 
 """
