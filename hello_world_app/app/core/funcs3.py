@@ -39,3 +39,15 @@ print(final_counter)  # 2
 final_counter[0] += 1  # 3
 final_counter = inc_c()
 print(final_counter)  # ? 5 | 4
+
+# usage of global global variable
+c = 0
+
+
+def add():
+    global c # try to uncomment this line and see what happens
+    c = c + 2  # increment by 2
+    print("Inside add():", c)
+
+
+add()
