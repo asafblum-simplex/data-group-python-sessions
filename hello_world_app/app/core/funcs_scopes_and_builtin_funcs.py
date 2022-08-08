@@ -16,33 +16,90 @@
 
 # global scope
 
-
-root_lvl_var = "somne outside value"
-
-from datetime import datetime
+import math
 
 
-def scoping():
-    lvl_one_var = "foo1"
-    counter = 0
+def x(a, b, /, c):
+    print(a, b, c)
 
-    def incre_counter():
+
+x('this is a', b='this is b', c='this is c')
+
+
+def a():
+    def a2():
+        def a3():
+            print("aaaa")
+            return 111
+
+    print()
+    return a2()
+
+    return a2
+
+
+my_test = a()
+
+
+def input_processor_factory(initial_counter=0):
+    counter = initial_counter
+
+    if counter is None:
+        print("debug: assigned default numeric value to NaN value")
+        counter = 0
+
+    counter = initial_counter if initial_counter is not None else 0
+
+    def inc_counter_by_2():
+        def nested():
+            nonlocal counter
+            counter += 1
+            print(counter)
+
         nonlocal counter
-
+        nested()
         counter += 1
 
-    def my_nested_func():
-        incre_counter()
-        lvl_two_var = "foo2"
 
-        print(root_lvl_var, lvl_one_var, lvl_two_var, f'counter: {counter}')
 
-    return {
-        # "inc": incre_counter,
-        "my_nested_func": my_nested_func,
+    inc_counter_by_2()
+    print(counter)
 
-        "date": datetime.now()
-    }
+
+    def empty_input_handler():
+        print("You must provide some input with valid data")
+        return 'handled_computed_value'
+
+    def extract_text(input_data):
+        if not input_data:
+            return empty_input_handler(), counter
+
+        inc_counter()
+        return f'---{input_data}', execution_counter
+
+    inc_counter()
+    print('other_arg', other_arg)
+    return extract_text, execution_counter
+
+
+input_processor_factory(None)
+pending_files = ['/tmp/foo.txt', './a.txt', 'bbb', 'zzz', 'bbb', 'aaa']
+pending_files.index('bbb')
+print(pending_files)
+
+pending_files = []  # clears the list
+pending_files.sort()
+
+input_processor = input_processor_factory('ll', '+x', '-h', src_dir='/usr/bin')  # chmod +x {file} && ll {flag}
+
+print(f'Intermediate output: {extract_text_, execution_counter_}')
+
+print()
+
+#####
+b = my_output()
+print(b)  #
+# "somne outside value"
 
 
 decorator1 = scoping()
@@ -68,3 +125,30 @@ print(fizz)
 d, l, g = dir(), locals(), globals()
 print("Outside the function", d, l, g)
 testing_scope_visibility('fizz', 'fuzz')
+
+
+def sum(a, b):
+    c = a + b
+
+    if a < 0:
+        return a, b, c
+
+    if a > 5:
+        return a * b
+
+    if a > 50:
+        return a / b
+
+    if a > 500:
+        return a ** b
+
+    return a + b
+
+
+calc = sum(-4, 5)
+print()
+if x()()():
+    print("got in")
+else:
+    print("Not in")
+print()
