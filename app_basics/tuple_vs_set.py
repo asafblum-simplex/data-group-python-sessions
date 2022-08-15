@@ -5,8 +5,8 @@ def time_access(n: int, iterations: int = 10000):
     test_tuple = tuple(range(n))
     test_set = set(range(n))
 
-    result_tuple = timeit(f'{n} in test_tuple', globals=locals(), number=iterations)
-    result_set = timeit(f'{n} in test_set', globals=locals(), number=iterations)
+    result_tuple = timeit(f'{n-1} in test_tuple', globals=locals(), number=iterations)
+    result_set = timeit(f'{n-1} in test_set', globals=locals(), number=iterations)
 
     return result_tuple, result_set
 
