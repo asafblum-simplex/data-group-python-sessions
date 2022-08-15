@@ -17,9 +17,7 @@ testing conditions for each line:
 
 1. test if 'exit' cmd, if true -> somehow to exit the while loop -
 """
-from constants.commands import EXIT_CMD, SEND_REQUEST_CMD
-
-
+from commands.validators import is_exit_cmd
 
 if __name__ == '__main__':
     counter: int = 0
