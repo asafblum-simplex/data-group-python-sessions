@@ -14,6 +14,21 @@ P.S Think what happens in the future, when product wants us to add a new command
 
 from commands.validators import is_exit_cmd
 
+my_struct = {
+    'user_id': int,
+    'username': str,
+    'created_at': int
+}
+
+def my_request_handler(req, res):
+    if FEATURE_FLAG:
+        from commands.validators import is_exit_cmd
+
+    pass
+
+
+'/user/{id}/status', my_request_handler
+
 if __name__ == '__main__':
     counter: int = 0
 

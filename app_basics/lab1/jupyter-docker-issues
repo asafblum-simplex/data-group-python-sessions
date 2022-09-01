@@ -1,0 +1,7 @@
+docker run -d -p 8000:8000 --name jupyterhub jupyterhub/jupyterhub jupyterhub
+
+adduser asaf
+usermod -aG sudo asaf
+su asaf
+ln -s `which pip` /usr/bin/pip3.8
+pip install jupyter_server jupyterlab
