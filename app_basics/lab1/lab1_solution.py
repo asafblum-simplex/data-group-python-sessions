@@ -12,7 +12,7 @@ ch.setFormatter(formatter)
 logger.addHandler(ch)
 
 
-# module validators
+# validators
 def is_csv_line(payload: str) -> bool:
     raise NotImplementedError()
 
@@ -21,7 +21,7 @@ def is_local_path(payload: str) -> bool:
     raise NotImplementedError()
 
 
-# module handlers
+# handlers
 def tail(payload: str) -> bool:
     raise NotImplementedError()
 
@@ -32,6 +32,9 @@ def head(payload: str) -> bool:
 
 def quit_repl(payload: str) -> bool:
     raise NotImplementedError()
+
+
+# commands
 
 COMMAND_PREFIX = '//'
 
@@ -52,6 +55,8 @@ class Command(Enum):
 
 
 def repl():
+    start_time = NotImplemented
+
     while (raw_cmd := input(f'>>>')[2:]) != Command.QUIT:
         cmd, raw_path = raw_cmd.split(' ', 1)
 
@@ -59,8 +64,13 @@ def repl():
         if not handler:
             print(f'Unknown command {cmd}, type help to list available commands')
             continue  # let the user try again
-        print(f'Handling {}')
+
+        print(f'Handling {cmd}... implement some logic')
         sleep(1)
 
+    finished_time = NotImplemented
+    elapsed = NotImplemented  # todo
 
-repl()
+
+if __name__ == '__main__':
+    repl()
