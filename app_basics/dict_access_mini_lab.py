@@ -1,9 +1,19 @@
 # todo are there any bugs in this code?
 
+def handle(i):
+    return i*i
+
+[handle(i) for i in range(100)]
+
+
 # module: validators.py
 
+WORKING_VER = ('2.0.1',)
+
+
 def validate_client_version(payload: dict) -> bool:
-    return payload.get('client_version') is not None and payload.get('client_version') is not '2.0.1'
+    ver = payload.get('client_version') if isinstance(payload, dict) else ''
+    return bool(payload) and ver in WORKING_VER
 
 
 def validate_ip(payload: dict) -> bool:
@@ -23,4 +33,9 @@ data = {
     'status_text': 'created'
 }
 
-validate_client_version(data['payload'])
+
+consumer_alerts_validation_pipeline = [validate, [validate_ip, validate_client_version]]
+
+
+for handle in :
+    handle(dat)

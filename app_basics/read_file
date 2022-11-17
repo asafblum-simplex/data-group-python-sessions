@@ -1,0 +1,11 @@
+#!/Users/asafblum/.pyenv/shims/python
+
+import sys
+
+arguments = sys.argv
+
+with open('words.txt', 'r') as f:
+    while line := f.readline():
+        print(line.rstrip())
+
+        

@@ -1,0 +1,1 @@
+# usage echo '{"foo": "bar"}' | python -c "import json,sys;print(json.load(sys.stdin)[sys.argv[1]])" foo
