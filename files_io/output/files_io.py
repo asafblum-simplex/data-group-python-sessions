@@ -14,11 +14,25 @@ def x():
             """
 
     with open('./config.ini', 'w+', encoding='utf8') as fh:
-        fh.write(content)
 
-        fh.seek(0)
+        # fh.write('abcd')
+        # curr_pos_a = fh.tell()
+        #
+        # fh.seek(0)
+        # curr_pos_b = fh.tell()
+        #
+        # headerVersion = fh.read(4)
+        # curr_pos_c = fh.tell()
+        #
+
+        # curr_pos = fh.tell()
+
+        fh.write(content)
+        content_length = len(content)
+        fh.seek(132)
+        curr_pos_d = fh.tell()
         headerVersion = fh.read(4)
-        curr_pos = fh.tell()
+        curr_pos_e = fh.tell()
         mime = fh.read(3)
 
         fh.seek(25)
@@ -40,7 +54,8 @@ def x():
     if headerVersion == 'asdasd':
         pass
 
-
+x()
+exit()
 data = {'devId': 12, 'status': 'online'}
 with open("/tmp/my_data.json", "w") as fh:
     json.dump(data, fh)
