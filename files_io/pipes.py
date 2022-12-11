@@ -29,6 +29,9 @@ with fileinput.input() as f_input:
     for line in f_input:
         print("processed:", line, end='')
 
+if __name__ == '__main__':
+    
+
 # $ ls | ./pipes.py          # Prints a directory listing to stdout.
 # $ ./filein.py /etc/passwd   # Reads /etc/passwd to stdout.
 # $ ./filein.py < /etc/passwd # Reads /etc/passwd to stdout.
