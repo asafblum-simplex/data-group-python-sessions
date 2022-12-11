@@ -7,10 +7,6 @@ from starlette.responses import Response
 from requests import BaseRequest
 
 
-class FooRoute(APIRoute):
-    pass
-
-
 class BasicRoute(APIRoute):
     def get_route_handler(self) -> Callable:
         original_route_handler = super().get_route_handler()

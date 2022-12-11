@@ -25,9 +25,6 @@ class BasicMiddleware(BaseHTTPMiddleware):
     async def dispatch(self, request, call_next):
         print(f"middleware-{self.order}", "before")
 
-        payload = await request.json()
-        print(payload)
-
         res = await call_next(request)
         print(f"middleware-{self.order}", "after", res)
         return res

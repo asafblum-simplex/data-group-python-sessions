@@ -4,21 +4,15 @@ from typing import Callable
 from fastapi import APIRouter
 from starlette.requests import Request
 
-from routes import BasicRoute, FooRoute
+from routes import BasicRoute
 from models import Item
 
 router = APIRouter()
-router.route_class = BasicRoute, FooRoute
-
-
-class BasicFooRoute(BasicRoute, FooRoute):
-
-    def get_route_handler(self) -> Callable:
-        return super(BasicRoute).get_route_handler()
+router.route_class = BasicRoute
 
 
 @router.post('/', tags=['root'])
-async def create(item: Item, request:Request):
+async def create(r: Request, item: Item):
     # async def create(request: Request):
     print("ep")
     # body = request.state.temp_body
